@@ -1,0 +1,54 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Todo {
+  id: ID!
+  text: String!
+  done: Boolean!
+  user: User!
+}
+
+type User {
+  id: ID!
+  name: String!
+}
+
+input NewTodo {
+  text: String!
+  userId: String!
+}
+
+type Mutation {
+  createTodo(input: NewTodo!): Todo!
+}
+
+type Query {
+ TrendingMovies(filter: String!): TrendingMoviesResponse 
+}
+
+type TrendingMoviesResponse{
+  page: Int
+  results: [Results]
+  total_pages: Int
+  total_results: Int
+}
+
+
+type Results{
+adult: String
+backdrop_path: String
+id: Int
+title:String
+original_language: String
+original_title: String
+overview: String
+poster_path:String
+media_type: String
+genre_ids: [Int]
+popularity: Float
+release_date: String
+video: Boolean
+vote_average: Float
+vote_count: Int
+}
